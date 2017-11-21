@@ -5,6 +5,13 @@
     </head>
 
     <body>
-        Hello World!
+        <h1>Monthly List</h1>
+        <div>
+            <ul>
+                @foreach($reports as $report)
+                <li>{{ $report->title }}</li>
+                @endforeach
+            </ul>
+        </div>
     </body>
 </html>
