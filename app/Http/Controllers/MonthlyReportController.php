@@ -88,8 +88,7 @@ class MonthlyReportController extends Controller {
      */
     public function update(Request $request, Report $report){
         $this->reportService->update($request, $report);
-//        return redirect('/report/'.$report->id);
-        return redirect('/report');
+        return redirect('/report/'.$report->id);
     }
 
 }
