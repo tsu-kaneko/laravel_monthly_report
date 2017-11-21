@@ -10,5 +10,8 @@ class ReportService {
         return Report::orderBy('created_at', 'asc')->get();
     }
     
+    public function findById($id){
+        return Report::find($id);
+    }
 
 }

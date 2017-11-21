@@ -9,7 +9,7 @@
         <div>
             <ul>
                 @foreach($reports as $report)
-                <li>{{ $report->title }}</li>
+                <li><a href="/report/{{ $report->id }}">{{ $report->title }}</a></li>
                 @endforeach
             </ul>
         </div>
