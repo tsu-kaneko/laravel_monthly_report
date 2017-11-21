@@ -10,7 +10,14 @@
         <div>
             <ul>
                 @foreach($reports as $report)
-                <li><a href="/report/{{ $report->id }}">{{ $report->title }}</a></li>
+                <li>
+                    <a href="/report/{{ $report->id }}">{{ $report->title }}</a>
+                    <form action="/report/{{ $report->id }}" method="POST">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <input type="submit" value="Delete">
+                    </form>
+                </li>
                 @endforeach
             </ul>
         </div>

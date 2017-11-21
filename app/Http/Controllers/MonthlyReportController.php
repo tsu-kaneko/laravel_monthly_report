@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 //use App;
 use App\Services\ReportService;
 use Illuminate\Http\Request;
+use App\Report;
 
 class MonthlyReportController extends Controller {
     
@@ -62,8 +63,12 @@ class MonthlyReportController extends Controller {
         return redirect('/report');
     }
     
-    public function destroy(){
-        
+    /**
+     * 月報の削除
+     */
+    public function destroy(Report $report){
+        $this->reportService->delete($report);
+        return redirect('/report');
     }
     
     // 編集画面に遷移

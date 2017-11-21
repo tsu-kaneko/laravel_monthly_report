@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use \App\Report;
+use App\Report;
 use Illuminate\Http\Request;
 
 class ReportService {
@@ -20,6 +20,10 @@ class ReportService {
         $report->title = $request->title;
         $report->content = $request->content;
         $report->save();
+    }
+    
+    public function delete(Report $report){
+        $report->delete();
     }
 
 }
