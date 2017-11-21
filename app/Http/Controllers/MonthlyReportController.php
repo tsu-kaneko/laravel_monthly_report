@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 //use App;
 use App\Services\ReportService;
 
-class TopController extends Controller {
+class MonthlyReportController extends Controller {
     
     protected $reportService;
     

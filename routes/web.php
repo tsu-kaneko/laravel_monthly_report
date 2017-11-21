@@ -12,6 +12,6 @@
 */
 
 
-Route::get('/', 'TopController@index');
+Route::get('/', 'MonthlyReportController@index');
 
 
