@@ -14,6 +14,11 @@ class MonthlyReportController extends Controller {
         $this->reportService = $reportService;
     }
 
+    /**
+     * 月報一覧
+     * 
+     * @return type
+     */
     public function index() {
 //        echo 'Call TopController#index<br>';
 
@@ -23,7 +28,8 @@ class MonthlyReportController extends Controller {
 
         $reports = $this->reportService->getAll();
 
-        return view('top', ['reports' => $reports]);
+        return view('reports.top', ['reports' => $reports]);
+    }
     }
 
 }
