@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 //use App;
 use App\Services\ReportService;
+use Illuminate\Http\Request;
 
 class MonthlyReportController extends Controller {
     
@@ -42,13 +43,23 @@ class MonthlyReportController extends Controller {
         return view('reports.detail', ['report' => $report]);
     }
     
-    // 新規登録画面に遷移
+    /**
+     * 新規登録画面に遷移
+     */
     public function create(){
-        
+        return view('reports.create');
     }
     
-    public function store(){
-        
+    /**
+     * 
+     * 月報の新規登録
+     * 
+     * @param Request $request
+     * @return type
+     */
+    public function store(Request $request){
+        $this->reportService->save($request);
+        return redirect('/report');
     }
     
     public function destroy(){

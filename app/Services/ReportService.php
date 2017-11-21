@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use \App\Report;
+use Illuminate\Http\Request;
 
 class ReportService {
 
@@ -12,6 +13,13 @@ class ReportService {
     
     public function findById($id){
         return Report::find($id);
+    }
+    
+    public function save(Request $request){
+        $report = new Report();
+        $report->title = $request->title;
+        $report->content = $request->content;
+        $report->save();
     }
 
 }

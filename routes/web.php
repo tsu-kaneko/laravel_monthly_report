@@ -12,9 +12,11 @@
 */
 
 // Route::resourceをつけるだけでCRUDルーティングを作成する
-//Route::get('/', 'MonthlyReportController@index');
-//Route::get('report/{id}', 'MonthlyReportController@show');
+//Route::get('/report', 'MonthlyReportController@index');
+//Route::get('/report/{id}', 'MonthlyReportController@show');
+//Route::get('/report/create', 'MonthlyReportController@create');
 
 Route::resource('report', 'MonthlyReportController');
 
-
+// 何故かstoreがうまくいかないので別途定義する
+Route::post('/report/store', 'MonthlyReportController@store');

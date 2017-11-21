@@ -5,7 +5,7 @@
     </head>
 
     <body>
-        <h1>Monthly Detail</h1>
+        <h1>Monthly Report Detail</h1>
         <div>
             <ul>
                 <li>{{ $report -> id }}</li>
