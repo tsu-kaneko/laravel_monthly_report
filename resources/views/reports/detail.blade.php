@@ -12,6 +12,7 @@
                 <li>{{ $report -> title }}</li>
                 <li>{{ $report -> content }}</li>
             </ul>
+            <a href="/report/{{ $report->id }}/edit">Edit</a>
         </div>
     </body>
 </html>

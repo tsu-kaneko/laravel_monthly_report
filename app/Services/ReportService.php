@@ -25,5 +25,11 @@ class ReportService {
     public function delete(Report $report){
         $report->delete();
     }
+    
+    public function update(Request $request, Report $report){
+        $report->title = $request->title;
+        $report->content = $request->content;
+        $report->update();
+    }
 
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-//use App;
 use App\Services\ReportService;
 use Illuminate\Http\Request;
 use App\Report;
@@ -17,7 +16,7 @@ class MonthlyReportController extends Controller {
     }
 
     /**
-     * 月報一覧
+     * 月報の一覧
      * 
      * @return type
      */
@@ -45,7 +44,7 @@ class MonthlyReportController extends Controller {
     }
     
     /**
-     * 新規登録画面に遷移
+     * 月報の新規登録画面に遷移
      */
     public function create(){
         return view('reports.create');
@@ -71,13 +70,26 @@ class MonthlyReportController extends Controller {
         return redirect('/report');
     }
     
-    // 編集画面に遷移
-    public function edit(){
-        
+    /**
+     * 月報の編集画面に遷移
+     * 
+     * @param Report $report
+     * @return type
+     */
+    public function edit(Report $report){
+        return view('reports.edit', ['report' => $report]);
     }
     
-    public function update(){
-        
+    /**
+     *  月報の更新
+     * 
+     * @param Report $report
+     * @return type
+     */
+    public function update(Request $request, Report $report){
+        $this->reportService->update($request, $report);
+//        return redirect('/report/'.$report->id);
+        return redirect('/report');
     }
 
 }
