@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <title>Detail</title>
-    </head>
-
-    <body>
-        <h1>Monthly Report Detail</h1>
-        <div>
-            <ul>
-                <li>{{ $report -> id }}</li>
-                <li>{{ $report -> title }}</li>
-                <li>{{ $report -> content }}</li>
-            </ul>
-            <a href="/report/{{ $report->id }}/edit">Edit</a>
-        </div>
-    </body>
-</html>
+@extends('common.app')
+@section('content')
+<h1>Monthly Report Detail</h1>
+<div>
+    <ul>
+        <li>{{ $report -> id }}</li>
+        <li>{{ $report -> title }}</li>
+        <li>{{ $report -> content }}</li>
+    </ul>
+    <a href="/report/{{ $report->id }}/edit">Edit</a>
+</div>
+@endsection
