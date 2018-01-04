@@ -1,6 +1,6 @@
 @extends('common.app')
 @section('content')
-<h1>Monthly Report Edit</h1>
+<h3>Monthly Report Edit</h3>
 <div>
     <form action="/report/{{ $report->id }}" method="POST">
         {{ csrf_field() }}

@@ -7,11 +7,11 @@
     <body>
 
         <nav>
-            <div>
+            <h1>
                 <a href="{{ url('/report') }}">
                     Monthly Report Top
                 </a>
-            </div>
+            </h1>
         </nav>
 
         @yield('content')

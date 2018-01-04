@@ -1,6 +1,6 @@
 @extends('common.app')
 @section('content')
-<h1>Monthly Report Create</h1>
+<h3>Monthly Report Create</h3>
 <form action="/report/store" method="POST">
     {{ csrf_field() }}
     Title   : <input type="text" name="title" id="title" value=""><br>

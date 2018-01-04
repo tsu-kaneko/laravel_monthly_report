@@ -1,6 +1,6 @@
 @extends('common.app')
 @section('content')
-<h1>Monthly Report List</h1>
+<h3>Monthly Report List</h3>
 <!-- 月報一覧 -->
 <div>
     <ul>

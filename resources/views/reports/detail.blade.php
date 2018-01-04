@@ -1,6 +1,6 @@
 @extends('common.app')
 @section('content')
-<h1>Monthly Report Detail</h1>
+<h3>Monthly Report Detail</h3>
 <div>
     <ul>
         <li>{{ $report -> id }}</li>
