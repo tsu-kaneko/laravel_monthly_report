@@ -20,6 +20,8 @@ class ReportService {
         $report->title = $request->title;
         $report->content = $request->content;
         $report->save();
+        
+        return $report->getKey();
     }
     
     public function delete(Report $report){

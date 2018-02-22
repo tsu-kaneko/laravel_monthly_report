@@ -4,15 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Services\ReportService;
+use App\Services\TagService;
 use Illuminate\Http\Request;
 use App\Report;
+use App\Services\ReportTagService;
 
 class MonthlyReportController extends Controller {
     
     protected $reportService;
     
-    public function __construct(ReportService $reportService) {
+    protected $tagService;
+    
+    protected $reportTagService;
+    
+    public function __construct(ReportService $reportService, 
+            TagService $tagService, 
+            ReportTagService $reportTagService) {
         $this->reportService = $reportService;
+        $this->tagService = $tagService;
+        $this->reportTagService = $reportTagService;
     }
 
     /**
@@ -28,8 +38,9 @@ class MonthlyReportController extends Controller {
 //        $reports = $reportService->getAll();
 
         $reports = $this->reportService->getAll();
-
+        
         return view('reports.top', ['reports' => $reports]);
+//        return view('reports.top')->with(['reports' => $reports]);  // これでも渡せる
     }
 
     /**
@@ -40,6 +51,10 @@ class MonthlyReportController extends Controller {
      */
     public function show($id){
         $report = $this->reportService->findById($id);
+        
+        $reportTags = $this->reportTagService->findByReportId($id);
+        \Debugbar::info($reportTags);
+        
         return view('reports.detail', ['report' => $report]);
     }
     
@@ -47,7 +62,8 @@ class MonthlyReportController extends Controller {
      * 月報の新規登録画面に遷移
      */
     public function create(){
-        return view('reports.create');
+        $tags = $this->tagService->findAll();
+        return view('reports.create', ['tags' => $tags]);
     }
     
     /**
@@ -58,7 +74,8 @@ class MonthlyReportController extends Controller {
      * @return type
      */
     public function store(Request $request){
-        $this->reportService->save($request);
+        $report_id = $this->reportService->save($request);
+        $this->reportTagService->save($report_id, $request);
         return redirect('/report');
     }
     
